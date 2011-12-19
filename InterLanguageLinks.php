@@ -60,7 +60,7 @@ if(!isset($wfSimpleInterLanguageLinks_ExcemptNamespaces)){
 }
 $wfSimpleInterLanguageLinks_ExcemptNamespaces = array_merge( array(NS_CATEGORY, NS_TEMPLATE, NS_IMAGE, NS_MEDIA, NS_SPECIAL, NS_MEDIAWIKI),$wfSimpleInterLanguageLinks_ExcemptNamespaces);
 
-function wfSimpleInterLanguageLinks_SkinTemplateOutputPageBeforeExec($skin, $tpl){
+function wfSimpleInterLanguageLinks_SkinTemplateOutputPageBeforeExec(&$skin, &$tpl){
 	global $wfSimpleInterLanguageLinks_ForeignLanguages,$wgContLang,$wgLanguageCode,$wfSimpleInterLanguageLinks_ExcemptNamespaces;
 	if(array_search($skin->getRelevantTitle()->getNamespace(),$wfSimpleInterLanguageLinks_ExcemptNamespaces)===FALSE){
 		$title = $skin->getRelevantTitle()->getDBkey();
@@ -105,7 +105,7 @@ function wfSimpleInterLanguageLinks_SkinTemplateOutputPageBeforeExec($skin, $tpl
 	return true;
 }
 
-function wfSimpleInterLanguageLinks_SkinSubPageSubtitle($subpages, $skin){
+function wfSimpleInterLanguageLinks_SkinSubPageSubtitle(&$subpages, $skin){
 	global $wfSimpleInterLanguageLinks_ForeignLanguages,$wgLanguageCode,$wgScriptPath,$wfSimpleInterLanguageLinks_MagicTitle,$wfSimpleInterLanguageLinks_MagicNavigation,$wfSimpleInterLanguageLinks_ExcemptNamespaces;
 	if(array_search($skin->getRelevantTitle()->getNamespace(),$wfSimpleInterLanguageLinks_ExcemptNamespaces)===FALSE){
 		$navi = explode("/",$skin->getRelevantTitle()->getDBkey());
