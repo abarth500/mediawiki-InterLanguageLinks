@@ -128,9 +128,9 @@ function wfSimpleInterLanguageLinks_SkinSubPageSubtitle($subpages, $skin){
 	}else{
 		$main = "";
 	}
-	$subpages .= '&gt;&gt;<a href="'.$wgScriptPath.'/'.$main.'">Top</a> ';
+	$subpages .= '&gt;&gt;<a href="'.$wgScriptPath.'/'.$main.'">Top</a>';
 	if(count($NAVI)>0){
-		$subpages .= "&gt; ";
+		$subpages .= " &gt; ";
 	}
 	$subpages .= implode(" &gt; ",$NAVI);
 	$subpages .= '<script>(function(){var t = document.getElementById("firstHeading");if(t.innerHTML == "'.$pageTitle.'"){t.innerHTML = "'.$pageTitle.'";}})();</script>';
