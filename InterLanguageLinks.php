@@ -120,7 +120,18 @@ function wfSimpleInterLanguageLinks_SkinSubPageSubtitle(&$subpages, $skin){
 		}
 		$pageTitle = array_pop($navi);
 		if($wfSimpleInterLanguageLinks_MagicTitle){
-			$subpages .= '<script>(function(){var t = document.getElementById("firstHeading");if(t.innerHTML == "'.$skin->getRelevantTitle()->getDBkey().'"){t.innerHTML = "'.$pageTitle.'";}})();</script>';
+			$dbkey = $skin->getRelevantTitle()->getDBkey();
+			$subpages .= <<<ENDEND
+			
+<script>(function(){
+	var t = document.getElementById("firstHeading");
+	if(t.innerHTML == "${dbkey}"){
+		t.innerHTML = "${pageTitle}";
+	}
+})();
+</script>
+
+ENDEND;
 		}
 		if($wfSimpleInterLanguageLinks_MagicNavigation){
 			$NAVI = array();
